@@ -16,10 +16,19 @@ class TransactionTableViewCell: UITableViewCell {
     
     var transaction: TransactionPresenter! {
         didSet {
-            mainLabel.text = transaction.transactionAmount()
+            mainLabel.text = transaction.transactionDescription()
             subtitleLabel.text = transaction.transactionCategory()
-            detailLabel.text = transaction.transactionAmount()
+            detailLabel.text = transaction.transactionAmount()! + "$"
         }
+    }
+    
+    override func awakeFromNib() {
+        setStyle()
+    }
+    
+    private func setStyle() {
+        subtitleLabel.textColor = UIColor.lightGray
+        detailLabel.textColor = UIColor.darkGray
     }
     
 }
