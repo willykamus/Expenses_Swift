@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var data = [Transaction]()
-    
-    let tran = Transaction()
+    var data = [TransactionPresenter]()
 
     let tableview = UITableView()
     
@@ -41,9 +39,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let transaction = data[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TransactionTableViewCell {
-            cell.displayTransaction(transaction: transaction)
+            cell.transaction = data[indexPath.row]
             return cell
         }
         return UITableViewCell()

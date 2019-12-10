@@ -21,6 +21,8 @@
 		1C3E0D842398BE31002AD183 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D832398BE31002AD183 /* Transaction.swift */; };
 		1C3E0D87239B5B79002AD183 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D86239B5B79002AD183 /* DataSource.swift */; };
 		1C3E0D89239B5D4D002AD183 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D88239B5D4D002AD183 /* Firestore.swift */; };
+		1C7F9A81239ED3500037BF05 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F9A80239ED3500037BF05 /* TransactionViewController.swift */; };
+		1C7F9A83239ED7AA0037BF05 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F9A82239ED7A90037BF05 /* TransactionPresenter.swift */; };
 		3AE8F6CE1DD778E71DFB0398 /* Pods_Expenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96794BBFD88CFEB04AAF3E48 /* Pods_Expenses.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		1C3E0D832398BE31002AD183 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1C3E0D86239B5B79002AD183 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		1C3E0D88239B5D4D002AD183 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
+		1C7F9A80239ED3500037BF05 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		1C7F9A82239ED7A90037BF05 /* TransactionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
 		80FFBB97D064430D707A5782 /* Pods-Expenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenses.release.xcconfig"; path = "Target Support Files/Pods-Expenses/Pods-Expenses.release.xcconfig"; sourceTree = "<group>"; };
 		8B847F460E1CF8C2B15936C7 /* Pods-Expenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenses.debug.xcconfig"; path = "Target Support Files/Pods-Expenses/Pods-Expenses.debug.xcconfig"; sourceTree = "<group>"; };
 		96794BBFD88CFEB04AAF3E48 /* Pods_Expenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,7 @@
 		1C3E0D602396057A002AD183 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
+				1C7F9A7F239ED33C0037BF05 /* ViewController */,
 				1C3E0D85239B5B68002AD183 /* DataSource */,
 				1C3E0D822398BE20002AD183 /* Model */,
 				1C3E0D7D2398B5B3002AD183 /* Views */,
@@ -117,6 +122,7 @@
 			children = (
 				1C3E0D832398BE31002AD183 /* Transaction.swift */,
 				1C02DEEE239DEE0C007069C4 /* FirestoreDocument.swift */,
+				1C7F9A82239ED7A90037BF05 /* TransactionPresenter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +134,14 @@
 				1C3E0D88239B5D4D002AD183 /* Firestore.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1C7F9A7F239ED33C0037BF05 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F9A80239ED3500037BF05 /* TransactionViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		601804898A065F50DD0D0C82 /* Pods */ = {
@@ -280,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7F9A83239ED7AA0037BF05 /* TransactionPresenter.swift in Sources */,
 				1C3E0D842398BE31002AD183 /* Transaction.swift in Sources */,
 				1C3E0D6C2396057A002AD183 /* Expenses.xcdatamodeld in Sources */,
 				1C02DEEF239DEE0C007069C4 /* FirestoreDocument.swift in Sources */,
@@ -288,6 +303,7 @@
 				1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */,
 				1C3E0D89239B5D4D002AD183 /* Firestore.swift in Sources */,
 				1C3E0D802398B7A0002AD183 /* TransactionTableViewCell.swift in Sources */,
+				1C7F9A81239ED3500037BF05 /* TransactionViewController.swift in Sources */,
 				1C3E0D87239B5B79002AD183 /* DataSource.swift in Sources */,
 				1C3E0D642396057A002AD183 /* SceneDelegate.swift in Sources */,
 			);
@@ -427,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3JF6M2L57N;
+				DEVELOPMENT_TEAM = X75QNMB473;
 				INFOPLIST_FILE = Expenses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,7 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3JF6M2L57N;
+				DEVELOPMENT_TEAM = X75QNMB473;
 				INFOPLIST_FILE = Expenses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

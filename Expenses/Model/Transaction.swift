@@ -29,6 +29,7 @@ enum Category: String, Codable {
 
 class Transaction: Codable {
     
+    var id: String?
     var category: Category?
     var amount: Double?
     var description: String?

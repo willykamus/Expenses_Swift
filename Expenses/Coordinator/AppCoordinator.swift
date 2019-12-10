@@ -30,28 +30,31 @@ class AppCoordinator: Coordinator {
         window.rootViewController = rootVC
         transactionDataSource.getTransaction(success: { (data) in
             let vc = ViewController()
-            vc.data = data
+            vc.data = self.mapTransactions(data: data)
             vc.coordinator = self
             self.rootVC.pushViewController(vc, animated: true)
             self.window.makeKeyAndVisible()
-            self.test()
         }) { (error) in
             print(error.localizedDescription)
         }
         
     }
     
-    func test() {
-        let transaction = Transaction()
-        transaction.transactionType = TransactionType.income
-        transaction.amount = 10000
-        transaction.category = Category.salary
-        transaction.description = "Test"
-        
-        transactionDataSource.addTransaction(document: transaction, success: { (success) in
-            print("Added")
-        }) { (error) in
-            print("ERROR ERROR")
-        }
+    func mapTransactions(data: [Transaction]) -> [TransactionPresenter] {
+        data.map { return TransactionPresenter(withTransaction: $0)}
     }
+    
+//    func test() {
+//        let transaction = Transaction()
+//        transaction.transactionType = TransactionType.income
+//        transaction.amount = 10000
+//        transaction.category = Category.salary
+//        transaction.description = "Test"
+//        
+//        transactionDataSource.addTransaction(document: transaction, success: { (success) in
+//            print("Added")
+//        }) { (error) in
+//            print("ERROR ERROR")
+//        }
+//    }
 }

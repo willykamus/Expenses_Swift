@@ -14,11 +14,12 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    func displayTransaction(transaction: Transaction) {
-        
-        mainLabel.text = transaction.category?.rawValue ?? "None"
-        subtitleLabel.text = transaction.transactionType?.rawValue ?? "None"
-        detailLabel.text = String(transaction.amount ?? 0.0)
-        
+    var transaction: TransactionPresenter! {
+        didSet {
+            mainLabel.text = transaction.transactionAmount()
+            subtitleLabel.text = transaction.transactionCategory()
+            detailLabel.text = transaction.transactionAmount()
+        }
     }
+    
 }
