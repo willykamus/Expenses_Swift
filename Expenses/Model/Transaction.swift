@@ -27,7 +27,7 @@ enum Category: String, Codable {
     case salary
 }
 
-class Transaction: Codable {
+struct Transaction: Codable {
     
     var id: String?
     var category: Category?
