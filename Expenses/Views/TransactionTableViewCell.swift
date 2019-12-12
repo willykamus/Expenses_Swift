@@ -16,10 +16,27 @@ class TransactionTableViewCell: UITableViewCell {
     
     var transaction: TransactionPresenter! {
         didSet {
-            mainLabel.text = transaction.transactionAmount()
+            mainLabel.text = transaction.transactionDescription()
             subtitleLabel.text = transaction.transactionCategory()
-            detailLabel.text = transaction.transactionAmount()
+            detailLabel.text = transaction.transactionAmount()! + "$"
+            setStyle()
         }
+    }
+
+    private func setStyle() {
+        subtitleLabel.textColor = UIColor.lightGray
+        detailLabel.textColor = UIColor.darkGray
+
+        guard let type = transaction.getType() else {
+            return
+        }
+        switch type{
+        case .expense:
+            detailLabel.textColor = UIColor.red
+        case .income:
+            detailLabel.textColor = UIColor.green
+        }
+        
     }
     
 }

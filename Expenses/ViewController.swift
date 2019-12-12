@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     }
     
     override func loadView() {
+        tableview.tableFooterView = UIView()
         view = tableview
     }
     

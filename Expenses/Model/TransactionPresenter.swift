@@ -33,4 +33,12 @@ class TransactionPresenter {
         return transaction.transactionType?.rawValue
     }
     
+    func transactionDescription() -> String {
+        return transaction.description ?? "None"
+    }
+    
+    func getType() -> TransactionType? {
+        return  transaction.transactionType
+    }
+    
 }
