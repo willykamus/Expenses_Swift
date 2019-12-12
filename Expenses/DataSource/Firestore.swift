@@ -29,7 +29,9 @@ class FirestoreNetwork: DataSource {
                 var documents = [T]()
                 let decoder = JSONDecoder()
                 for document in response.documents {
-                    if let json = try? JSONSerialization.data(withJSONObject: document.data(), options: []) {
+                    var data = document.data()
+                    data["id"] = document.documentID
+                    if let json = try? JSONSerialization.data(withJSONObject: data, options: []) {
                         if let doc = try? decoder.decode(T.self, from: json) {
                             documents.append(doc)
                         }
