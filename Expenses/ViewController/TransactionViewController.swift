@@ -9,8 +9,8 @@
 import UIKit
 
 class TransactionViewController: UIViewController {
-
-    var tableView: UITableView = UITableView()
+    
+    var coordinator: AppCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,8 @@ class TransactionViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = tableView
+        let main = TransactionInfoView()
+        view = main
     }
     
     

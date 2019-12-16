@@ -9,7 +9,14 @@
 import Foundation
 import Firebase
 
-class FirestoreNetwork: DataSource {
+protocol TransactionDataSource {
+    
+    func getTransaction(success: @escaping ([Transaction])->(), failure: @escaping (Error)->())
+    func addTransaction(document:Transaction, success: @escaping (Bool)->(), failure: @escaping (Error)->())
+    
+}
+
+class FirestoreNetwork {
 
     private var db: Firestore
     
@@ -24,7 +31,6 @@ class FirestoreNetwork: DataSource {
                 failure(error)
                 return
             }
-            
             if let response = response {
                 var documents = [T]()
                 let decoder = JSONDecoder()
@@ -43,9 +49,7 @@ class FirestoreNetwork: DataSource {
     }
     
     func addDocument(name: FirestoreCollection, data dataObject:Transaction, success: @escaping(Bool)->Void, failure: @escaping(Error)->Void) {
-        
         let dictionary = dataObject.asDictionary()
-        
         db.collection(name.rawValue).addDocument(data: dictionary) { (error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -55,22 +59,5 @@ class FirestoreNetwork: DataSource {
             }
         }
     }
-    
-    func getTransaction(success: @escaping ([Transaction]) -> (), failure: @escaping (Error) -> ()) {
-        self.getCollection(name: FirestoreCollection.transactions, object: Transaction.self, success: { (data) in
-            success(data)
-        }) { (error) in
-            failure(error)
-        }
-    }
-    
-    func addTransaction(document: Transaction, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()) {
-        self.addDocument(name: FirestoreCollection.transactions, data: document, success: { (result) in
-            success(result)
-        }) { (error) in
-            failure(error)
-        }
-    }
-    
 }
 

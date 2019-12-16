@@ -17,18 +17,20 @@ class AppCoordinator: Coordinator {
     
     var window: UIWindow
     var rootVC: UINavigationController
-    var transactionDataSource: DataSource
+    var transactionRepository: TransactionRepository
     
     init(window:UIWindow, controller: UINavigationController) {
         self.window = window
         self.rootVC = controller
-        self.transactionDataSource = FirestoreNetwork()
+        let dataSource = TransactionFirestoreDataSource()
+        let repository = TransactionDataRepository(dataSource: dataSource)
+        self.transactionRepository = repository
         
     }
     
     func start() {
         window.rootViewController = rootVC
-        transactionDataSource.getTransaction(success: { (data) in
+        transactionRepository.getTransaction(success: { (data) in
             let vc = ViewController()
             vc.data = self.mapTransactions(data: data)
             vc.coordinator = self
@@ -44,17 +46,9 @@ class AppCoordinator: Coordinator {
         data.map { return TransactionPresenter(withTransaction: $0)}
     }
     
-//    func test() {
-//        let transaction = Transaction()
-//        transaction.transactionType = TransactionType.income
-//        transaction.amount = 10000
-//        transaction.category = Category.salary
-//        transaction.description = "Test"
-//        
-//        transactionDataSource.addTransaction(document: transaction, success: { (success) in
-//            print("Added")
-//        }) { (error) in
-//            print("ERROR ERROR")
-//        }
-//    }
+    func cellTapped() {
+        let vc = TransactionViewController()
+        self.rootVC.pushViewController(vc, animated: true)
+    }
+
 }
