@@ -39,27 +39,35 @@ class TransactionInfoView: UIView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        self.backgroundColor = UIColor.green
+        self.backgroundColor = .white
         self.addSubview(verticalStack)
-        configureVerticalStack()
-        verticalStack.addArrangedSubview(categoryLabel)
+        setupStack()
+        verticalStack.addSubview(categoryLabel)
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
     }
     
-    func configureVerticalStack() {
-        
+    func setupStack() {
+        defineStackStyle()
+        defineStackConstraints()
+    }
+    
+    fileprivate func defineStackConstraints() {
+        verticalStack.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        verticalStack.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        verticalStack.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
+    }
+    
+    func defineStackStyle() {
+        verticalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalStack.axis = .vertical
         verticalStack.alignment = .center
         verticalStack.distribution = .equalSpacing
         verticalStack.backgroundColor = UIColor.red
         
-        verticalStack.translatesAutoresizingMaskIntoConstraints = false
-        verticalStack.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        verticalStack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        verticalStack.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
     }
 }

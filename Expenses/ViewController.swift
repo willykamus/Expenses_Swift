@@ -9,12 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var data = [TransactionPresenter]()
-
+    
     let tableview = UITableView()
     
-    var coordinator: AppCoordinator?
+    var viewModel: TransactionsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +21,9 @@ class ViewController: UIViewController {
         tableview.dataSource = self
         tableview.rowHeight = UITableView.automaticDimension
         tableview.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        viewModel?.fetchTransaction {
+            self.tableview.reloadData()
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -36,19 +37,19 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return viewModel.transactionsAmount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TransactionTableViewCell {
-            cell.transaction = data[indexPath.row]
+            cell.presenter = viewModel.transactionPresenter(atIndexPath: indexPath)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.cellTapped()
+        viewModel.cellTapped()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

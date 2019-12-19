@@ -9,11 +9,12 @@
 import Foundation
 import Firebase
 
-protocol TransactionDataSource {
-    
-    func getTransaction(success: @escaping ([Transaction])->(), failure: @escaping (Error)->())
-    func addTransaction(document:Transaction, success: @escaping (Bool)->(), failure: @escaping (Error)->())
-    
+protocol TransactionsDataSource {
+    func getTransactions(success: @escaping ([Transaction])->())
+}
+
+protocol AddTransactionDataSource {
+    func addTransaction(document:Transaction, success: @escaping (Bool)->())
 }
 
 class FirestoreNetwork {
@@ -24,11 +25,11 @@ class FirestoreNetwork {
         self.db = Firestore.firestore()
     }
     
-    func getCollection<T:Codable>(name: FirestoreCollection, object objectType: T.Type, success: @escaping([T])->Void, failure: @escaping(Error)->Void) {
+    func getCollection<T:Codable>(name: FirestoreCollection, object objectType: T.Type, success: @escaping([T])->Void) {
 
         db.collection(name.rawValue).getDocuments { (response, error) in
             if let error = error {
-                failure(error)
+                print(error.localizedDescription)
                 return
             }
             if let response = response {
@@ -48,12 +49,11 @@ class FirestoreNetwork {
         }
     }
     
-    func addDocument(name: FirestoreCollection, data dataObject:Transaction, success: @escaping(Bool)->Void, failure: @escaping(Error)->Void) {
+    func addDocument(name: FirestoreCollection, data dataObject:Transaction, success: @escaping(Bool)->Void) {
         let dictionary = dataObject.asDictionary()
         db.collection(name.rawValue).addDocument(data: dictionary) { (error) in
             if let error = error {
                 print(error.localizedDescription)
-                failure(error)
             } else {
                 success(true)
             }

@@ -8,22 +8,20 @@
 
 import Foundation
 
-class TransactionFirestoreDataSource: FirestoreNetwork, TransactionDataSource {
+class TransactionFirestoreDataSource: FirestoreNetwork, TransactionsDataSource {
     
-    func getTransaction(success: @escaping ([Transaction]) -> (), failure: @escaping (Error) -> ()) {
+    func getTransactions(success: @escaping ([Transaction]) -> ()) {
         self.getCollection(name: FirestoreCollection.transactions, object: Transaction.self, success: { (data) in
             success(data)
-        }) { (error) in
-            failure(error)
-        }
+        })
     }
+}
+
+class AddTransactionFirestoreDataSource: FirestoreNetwork, AddTransactionDataSource {
     
-    func addTransaction(document: Transaction, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()) {
+    func addTransaction(document: Transaction, success: @escaping (Bool) -> ()) {
         self.addDocument(name: FirestoreCollection.transactions, data: document, success: { (result) in
             success(result)
-        }) { (error) in
-            failure(error)
-        }
+        })
     }
-    
 }

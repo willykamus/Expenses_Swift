@@ -9,26 +9,35 @@
 import Foundation
 
 protocol TransactionRepository {
-    
-    func getTransaction(success: @escaping ([Transaction])->(), failure: @escaping (Error)->())
-    func addTransaction(document:Transaction, success: @escaping (Bool)->(), failure: @escaping (Error)->())
-    
+    func getTransaction(success: @escaping ([Transaction])->())
+}
+
+protocol AddTransactionRespository {
+    func addTransaction(document:Transaction, success: @escaping (Bool)->())
 }
 
 class TransactionDataRepository: TransactionRepository {
     
-    private let dataSource: TransactionDataSource
+    private let dataSource: TransactionsDataSource
     
-    init(dataSource: TransactionDataSource) {
+    init(dataSource: TransactionsDataSource) {
         self.dataSource = dataSource
     }
     
-    func getTransaction(success: @escaping ([Transaction]) -> (), failure: @escaping (Error) -> ()) {
-        dataSource.getTransaction(success: success, failure: failure)
+    func getTransaction(success: @escaping ([Transaction]) -> ()) {
+        dataSource.getTransactions(success: success)
+    }
+}
+
+class AddTransactionDataRespository: AddTransactionRespository {
+    
+    private let dataSource: AddTransactionDataSource
+    
+    init(dataSource: AddTransactionDataSource) {
+        self.dataSource = dataSource
     }
     
-    func addTransaction(document: Transaction, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()) {
-        dataSource.addTransaction(document: document, success: success, failure: failure)
+    func addTransaction(document: Transaction, success: @escaping (Bool) -> ()) {
+        dataSource.addTransaction(document: document, success: success)
     }
-    
 }

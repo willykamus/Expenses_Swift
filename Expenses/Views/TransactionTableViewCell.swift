@@ -14,11 +14,11 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    var transaction: TransactionPresenter! {
+    var presenter: TransactionPresenter! {
         didSet {
-            mainLabel.text = transaction.transactionDescription()
-            subtitleLabel.text = transaction.transactionCategory()
-            detailLabel.text = transaction.transactionAmount()! + "$"
+            mainLabel.text = presenter.transactionDescription()
+            subtitleLabel.text = presenter.transactionCategory()
+            detailLabel.text = presenter.transactionAmount()! + "$"
             setStyle()
         }
     }
@@ -27,7 +27,7 @@ class TransactionTableViewCell: UITableViewCell {
         subtitleLabel.textColor = UIColor.lightGray
         detailLabel.textColor = UIColor.darkGray
 
-        guard let type = transaction.getType() else {
+        guard let type = presenter.getType() else {
             return
         }
         switch type{
