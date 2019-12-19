@@ -13,13 +13,17 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var mainStack: UIStackView!
+    @IBOutlet weak var containerView: UIView!
     
     var presenter: TransactionPresenter! {
         didSet {
+            self.selectionStyle = .none
             mainLabel.text = presenter.transactionDescription()
             subtitleLabel.text = presenter.transactionCategory()
             detailLabel.text = presenter.transactionAmount()! + "$"
             setStyle()
+            createCard()
         }
     }
 
@@ -36,6 +40,17 @@ class TransactionTableViewCell: UITableViewCell {
         case .income:
             detailLabel.textColor = UIColor.green
         }
+        
+    }
+    
+    private func createCard() {
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 10.0
+        
+        containerView.layer.shadowColor = UIColor.gray.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        containerView.layer.shadowRadius = 3.0
+        containerView.layer.shadowOpacity = 0.3
         
     }
     

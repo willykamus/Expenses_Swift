@@ -16,11 +16,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.systemGray6
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = UITableView.automaticDimension
         tableview.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableview.separatorStyle = .none
         viewModel?.fetchTransaction {
             self.tableview.reloadData()
         }
@@ -28,7 +29,6 @@ class ViewController: UIViewController {
     }
     
     override func loadView() {
-        tableview.tableFooterView = UIView()
         view = tableview
     }
     
