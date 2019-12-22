@@ -20,7 +20,7 @@
 		1C3E0D6C2396057A002AD183 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D6A2396057A002AD183 /* Expenses.xcdatamodeld */; };
 		1C3E0D6E2396057D002AD183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3E0D6D2396057D002AD183 /* Assets.xcassets */; };
 		1C3E0D712396057D002AD183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3E0D6F2396057D002AD183 /* LaunchScreen.storyboard */; };
-		1C3E0D7A239605A3002AD183 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D79239605A3002AD183 /* AppCoordinator.swift */; };
+		1C3E0D7A239605A3002AD183 /* DisplayTransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D79239605A3002AD183 /* DisplayTransactionsCoordinator.swift */; };
 		1C3E0D7C23986FDD002AD183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C3E0D7B23986FDD002AD183 /* GoogleService-Info.plist */; };
 		1C3E0D802398B7A0002AD183 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D7E2398B7A0002AD183 /* TransactionTableViewCell.swift */; };
 		1C3E0D812398B7A0002AD183 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C3E0D7F2398B7A0002AD183 /* TransactionTableViewCell.xib */; };
@@ -48,7 +48,7 @@
 		1C3E0D6D2396057D002AD183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C3E0D702396057D002AD183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C3E0D722396057D002AD183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C3E0D79239605A3002AD183 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1C3E0D79239605A3002AD183 /* DisplayTransactionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTransactionsCoordinator.swift; sourceTree = "<group>"; };
 		1C3E0D7B23986FDD002AD183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C3E0D7E2398B7A0002AD183 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		1C3E0D7F2398B7A0002AD183 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		1C3E0D782396058D002AD183 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				1C3E0D79239605A3002AD183 /* AppCoordinator.swift */,
+				1C3E0D79239605A3002AD183 /* DisplayTransactionsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 				1C3E0D6C2396057A002AD183 /* Expenses.xcdatamodeld in Sources */,
 				1C02DEF923A1D7F6007069C4 /* TransactionInfoView.swift in Sources */,
 				1C3E0D662396057A002AD183 /* ViewController.swift in Sources */,
-				1C3E0D7A239605A3002AD183 /* AppCoordinator.swift in Sources */,
+				1C3E0D7A239605A3002AD183 /* DisplayTransactionsCoordinator.swift in Sources */,
 				1C02DF0523AB08D3007069C4 /* DisplayTransactionsUseCase.swift in Sources */,
 				1C02DF0723AB1A4C007069C4 /* TransactionsViewModel.swift in Sources */,
 				1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */,

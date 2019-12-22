@@ -13,7 +13,11 @@ protocol Coordinator {
     func start()
 }
 
-class AppCoordinator: Coordinator {
+protocol TableViewCoordinator: Coordinator {
+    func cellTaped(indexPath: IndexPath)
+}
+
+class DisplayTransactionsCoordinator: TableViewCoordinator {
     
     var window: UIWindow
     var rootVC: UINavigationController
@@ -31,7 +35,7 @@ class AppCoordinator: Coordinator {
         self.window.makeKeyAndVisible()
     }
     
-    func cellTapped() {
+    func cellTaped(indexPath: IndexPath) {
         let vc = TransactionViewController()
         self.rootVC.pushViewController(vc, animated: true)
     }

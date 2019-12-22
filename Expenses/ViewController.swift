@@ -49,7 +49,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.cellTapped()
+        viewModel.cellTapped(indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
