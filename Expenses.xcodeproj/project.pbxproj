@@ -18,6 +18,7 @@
 		1C02DF0F23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */; };
 		1C02DF1123B0678F007069C4 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF1023B0678F007069C4 /* TransactionViewModel.swift */; };
 		1C02DF1323B06CBC007069C4 /* DisplayTransactionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF1223B06CBC007069C4 /* DisplayTransactionCoordinator.swift */; };
+		1C12F59323B1011D00FC99AE /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12F59223B1011D00FC99AE /* DropDownButton.swift */; };
 		1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D612396057A002AD183 /* AppDelegate.swift */; };
 		1C3E0D642396057A002AD183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D632396057A002AD183 /* SceneDelegate.swift */; };
 		1C3E0D662396057A002AD183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D652396057A002AD183 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayTransactionDetailsView.xib; sourceTree = "<group>"; };
 		1C02DF1023B0678F007069C4 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		1C02DF1223B06CBC007069C4 /* DisplayTransactionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTransactionCoordinator.swift; sourceTree = "<group>"; };
+		1C12F59223B1011D00FC99AE /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		1C3E0D5E2396057A002AD183 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3E0D612396057A002AD183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C3E0D632396057A002AD183 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				1C02DEFE23AAFC1A007069C4 /* HeaderTableViewCell.xib */,
 				1C02DF0C23AF2A55007069C4 /* DisplayTransactionDetailsView.swift */,
 				1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */,
+				1C12F59223B1011D00FC99AE /* DropDownButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				1C02DF0D23AF2A55007069C4 /* DisplayTransactionDetailsView.swift in Sources */,
 				1C02DEFC23A71F1A007069C4 /* TransactionFirestoreDataSource.swift in Sources */,
 				1C02DF1323B06CBC007069C4 /* DisplayTransactionCoordinator.swift in Sources */,
+				1C12F59323B1011D00FC99AE /* DropDownButton.swift in Sources */,
 				1C02DEFF23AAFC1A007069C4 /* HeaderTableViewCell.swift in Sources */,
 				1C7F9A81239ED3500037BF05 /* TransactionViewController.swift in Sources */,
 				1C02DF0323AB02EA007069C4 /* GetTransactionUseCase.swift in Sources */,
