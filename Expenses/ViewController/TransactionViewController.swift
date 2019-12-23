@@ -10,6 +10,8 @@ import UIKit
 
 class TransactionViewController: UIViewController {
     
+    var viewModel:TransactionViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
@@ -17,7 +19,7 @@ class TransactionViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = UIView()
+        self.view = viewModel?.view
     }
 
 }
