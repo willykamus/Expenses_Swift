@@ -19,7 +19,6 @@ class DisplayTransactionCoordinator: Coordinator {
     
     func start() {
         let vc = TransactionViewController()
-        vc.viewModel = self.viewModel
         root.pushViewController(vc, animated: true)
     }
  
