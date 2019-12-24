@@ -12,11 +12,9 @@ import UIKit
 class DisplayTransactionCoordinator: Coordinator {
     
     let root: UINavigationController
-    let viewModel:TransactionViewModel
     
-    init(withNavigationController root:UINavigationController, andViewModel viewModel: TransactionViewModel) {
+    init(withNavigationController root:UINavigationController) {
         self.root = root
-        self.viewModel = viewModel
     }
     
     func start() {

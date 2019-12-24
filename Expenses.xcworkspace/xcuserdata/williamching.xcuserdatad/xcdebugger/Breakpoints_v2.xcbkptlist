@@ -122,17 +122,17 @@
             filePath = "Expenses/ViewController/TransactionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "TransactionViewController"
-            landmarkType = "3">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loadView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DCDAF341-4E11-4B56-B17D-328565E47608"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expenses/ViewController.swift"
@@ -142,6 +142,38 @@
             endingLineNumber = "25"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DCDAF341-4E11-4B56-B17D-328565E47608 - 84ef8e5824f39a44"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Expenses.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Expenses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamching/Desktop/Project/Expenses/Expenses/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "1093">
+               </Location>
+               <Location
+                  uuid = "DCDAF341-4E11-4B56-B17D-328565E47608 - 83fb99974ab03d60"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Expenses.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Expenses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamching/Desktop/Project/Expenses/Expenses/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -164,7 +196,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7ACBEA3D-42DA-48EB-B1B4-11FABFE7723B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expenses/Model/TransactionsViewModel.swift"
@@ -180,7 +212,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D85E430F-74B0-4850-9ACB-28002B85F5A0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expenses/ViewController.swift"
@@ -190,6 +222,22 @@
             endingLineNumber = "52"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C6DB8D8-D92F-4335-8E81-567C3D90DF0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Expenses/Views/DropDownButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "DropDownButton"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

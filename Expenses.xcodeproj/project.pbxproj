@@ -14,10 +14,9 @@
 		1C02DF0323AB02EA007069C4 /* GetTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF0223AB02EA007069C4 /* GetTransactionUseCase.swift */; };
 		1C02DF0523AB08D3007069C4 /* DisplayTransactionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF0423AB08D3007069C4 /* DisplayTransactionsUseCase.swift */; };
 		1C02DF0723AB1A4C007069C4 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF0623AB1A4C007069C4 /* TransactionsViewModel.swift */; };
-		1C02DF0D23AF2A55007069C4 /* DisplayTransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF0C23AF2A55007069C4 /* DisplayTransactionDetailsView.swift */; };
-		1C02DF0F23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */; };
 		1C02DF1123B0678F007069C4 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF1023B0678F007069C4 /* TransactionViewModel.swift */; };
 		1C02DF1323B06CBC007069C4 /* DisplayTransactionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF1223B06CBC007069C4 /* DisplayTransactionCoordinator.swift */; };
+		1C02DF1523B1B220007069C4 /* CardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF1423B1B220007069C4 /* CardViewContainer.swift */; };
 		1C12F59323B1011D00FC99AE /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12F59223B1011D00FC99AE /* DropDownButton.swift */; };
 		1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D612396057A002AD183 /* AppDelegate.swift */; };
 		1C3E0D642396057A002AD183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E0D632396057A002AD183 /* SceneDelegate.swift */; };
@@ -45,10 +44,9 @@
 		1C02DF0223AB02EA007069C4 /* GetTransactionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionUseCase.swift; sourceTree = "<group>"; };
 		1C02DF0423AB08D3007069C4 /* DisplayTransactionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTransactionsUseCase.swift; sourceTree = "<group>"; };
 		1C02DF0623AB1A4C007069C4 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
-		1C02DF0C23AF2A55007069C4 /* DisplayTransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTransactionDetailsView.swift; sourceTree = "<group>"; };
-		1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayTransactionDetailsView.xib; sourceTree = "<group>"; };
 		1C02DF1023B0678F007069C4 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		1C02DF1223B06CBC007069C4 /* DisplayTransactionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTransactionCoordinator.swift; sourceTree = "<group>"; };
+		1C02DF1423B1B220007069C4 /* CardViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewContainer.swift; sourceTree = "<group>"; };
 		1C12F59223B1011D00FC99AE /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		1C3E0D5E2396057A002AD183 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3E0D612396057A002AD183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,9 +147,8 @@
 				1C02DEF823A1D7F6007069C4 /* TransactionInfoView.swift */,
 				1C02DEFD23AAFC1A007069C4 /* HeaderTableViewCell.swift */,
 				1C02DEFE23AAFC1A007069C4 /* HeaderTableViewCell.xib */,
-				1C02DF0C23AF2A55007069C4 /* DisplayTransactionDetailsView.swift */,
-				1C02DF0E23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib */,
 				1C12F59223B1011D00FC99AE /* DropDownButton.swift */,
+				1C02DF1423B1B220007069C4 /* CardViewContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C3E0D712396057D002AD183 /* LaunchScreen.storyboard in Resources */,
-				1C02DF0F23AF2A9C007069C4 /* DisplayTransactionDetailsView.xib in Resources */,
 				1C3E0D6E2396057D002AD183 /* Assets.xcassets in Resources */,
 				1C3E0D812398B7A0002AD183 /* TransactionTableViewCell.xib in Resources */,
 				1C02DF0023AAFC1A007069C4 /* HeaderTableViewCell.xib in Resources */,
@@ -349,12 +345,12 @@
 				1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */,
 				1C3E0D89239B5D4D002AD183 /* Firestore.swift in Sources */,
 				1C3E0D802398B7A0002AD183 /* TransactionTableViewCell.swift in Sources */,
-				1C02DF0D23AF2A55007069C4 /* DisplayTransactionDetailsView.swift in Sources */,
 				1C02DEFC23A71F1A007069C4 /* TransactionFirestoreDataSource.swift in Sources */,
 				1C02DF1323B06CBC007069C4 /* DisplayTransactionCoordinator.swift in Sources */,
 				1C12F59323B1011D00FC99AE /* DropDownButton.swift in Sources */,
 				1C02DEFF23AAFC1A007069C4 /* HeaderTableViewCell.swift in Sources */,
 				1C7F9A81239ED3500037BF05 /* TransactionViewController.swift in Sources */,
+				1C02DF1523B1B220007069C4 /* CardViewContainer.swift in Sources */,
 				1C02DF0323AB02EA007069C4 /* GetTransactionUseCase.swift in Sources */,
 				1C3E0D87239B5B79002AD183 /* TransactionRepository.swift in Sources */,
 				1C3E0D642396057A002AD183 /* SceneDelegate.swift in Sources */,

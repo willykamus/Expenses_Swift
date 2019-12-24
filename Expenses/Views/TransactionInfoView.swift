@@ -11,38 +11,20 @@ import UIKit
 
 class TransactionInfoView: UIView {
     
-    var verticalStack: UIStackView = UIStackView()
+    var categoryButton = DropDownButton()
     
-    var amountTextField:UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.textAlignment = .right
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    var categoryLabel:UILabel = {
-        let label = UILabel()
-        label.text = "Category"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    var categoryTextField:UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.textAlignment = .right
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+    var cardContainer = CardViewContainer()
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.addSubview(verticalStack)
-        setupStack()
-        verticalStack.addSubview(categoryLabel)
+        cardContainer.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(cardContainer)
+        categoryButton.translatesAutoresizingMaskIntoConstraints = false
+        setupCardViewConstraints()
+        
+        cardContainer.addSubview(categoryButton)
+        setupButtonConstraints()
         
     }
 
@@ -50,24 +32,17 @@ class TransactionInfoView: UIView {
       super.init(coder: aDecoder)
     }
     
-    func setupStack() {
-        defineStackStyle()
-        defineStackConstraints()
+    private func setupCardViewConstraints() {
+        cardContainer.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        cardContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        cardContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        cardContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    private func setupButtonConstraints() {
+        categoryButton.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
+        categoryButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor).isActive = true
+        categoryButton.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor).isActive = true
+        categoryButton.trailingAnchor.constraint(equalTo: cardContainer.trailingAnchor).isActive = true
     }
     
-    fileprivate func defineStackConstraints() {
-        verticalStack.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        verticalStack.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
-        verticalStack.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
-    }
-    
-    func defineStackStyle() {
-        verticalStack.translatesAutoresizingMaskIntoConstraints = false
-        verticalStack.axis = .vertical
-        verticalStack.alignment = .center
-        verticalStack.distribution = .equalSpacing
-        verticalStack.backgroundColor = UIColor.red
-        
-    }
 }

@@ -36,8 +36,8 @@ class DisplayTransactionsCoordinator: TableViewCoordinator {
     }
     
     func cellTaped(indexPath: IndexPath) {
-        let vc = TransactionViewController()
-        self.rootVC.pushViewController(vc, animated: true)
+        let coordinator = DisplayTransactionCoordinator(withNavigationController: self.rootVC)
+        coordinator.start()
     }
 
 }

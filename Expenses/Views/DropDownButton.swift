@@ -11,19 +11,25 @@ import UIKit
 
 class DropDownButton: UIButton {
     
-    var dropView = DropDownView()
+    var dropView:DropDownView = {
+        let view = DropDownView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        return view
+    }()
     
     var height = NSLayoutConstraint()
-    
     var isOpen = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel?.text = "Test"
+//        dropView = DropDownView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         
-        dropView = DropDownView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+
         
-        dropView.translatesAutoresizingMaskIntoConstraints = false
-        
+    }
+    
+    override func didMoveToSuperview() {
         self.superview?.addSubview(dropView)
         self.superview?.bringSubviewToFront(dropView)
         
@@ -32,7 +38,6 @@ class DropDownButton: UIButton {
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -77,21 +82,11 @@ class DropDownButton: UIButton {
         }, completion: nil)
     }
 
-    
-    
 }
 
 class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
+    var categories = ["Groceries","Rent","Credit Card"]
     
     var tableView = UITableView()
     
@@ -101,10 +96,28 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
+        setupConstrainsts()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupConstrainsts() {
+        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = categories[indexPath.row]
+        return cell
+    }
+  
 }
