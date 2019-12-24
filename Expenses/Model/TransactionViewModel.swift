@@ -12,10 +12,9 @@ import UIKit
 class TransactionViewModel {
     
     let presenter: TransactionPresenter
-    let view = TransactionInfoView(frame: CGRect(x: 0, y: 0, width: 300, height: 400))
     let coordinator: Coordinator
     
-    init(withTransaction presenter: TransactionPresenter, coordinator: Coordinator) {
+    init(presenter: TransactionPresenter, coordinator: Coordinator) {
         self.presenter = presenter
         self.coordinator = coordinator
     }

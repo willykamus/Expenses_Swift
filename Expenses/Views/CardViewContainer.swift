@@ -24,6 +24,10 @@ class CardViewContainer: UIView {
     
     private func setupBorders() {
         self.layer.cornerRadius = 16
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.layer.shadowRadius = 3.0
+        self.layer.shadowOpacity = 0.3
         
     }
     

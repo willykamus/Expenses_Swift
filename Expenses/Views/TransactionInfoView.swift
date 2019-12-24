@@ -11,15 +11,18 @@ import UIKit
 
 class TransactionInfoView: UIView {
     
-    var categoryButton = DropDownButton()
+    var categoryButton = DropDownButton(frame: CGRect(x: 50, y: 50, width: 100, height: 50))
     
-    var cardContainer = CardViewContainer()
+    var cardContainer = CardViewContainer(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
+//        self.translatesAutoresizingMaskIntoConstraints = false
+        
         cardContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(cardContainer)
+        
         categoryButton.translatesAutoresizingMaskIntoConstraints = false
         setupCardViewConstraints()
         

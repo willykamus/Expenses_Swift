@@ -21,19 +21,10 @@ class DropDownButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel?.text = "Test"
-//        dropView = DropDownView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        self.setTitle("Test", for: .normal)
+        self.addSubview(dropView)
         
-
-        
-    }
-    
-    override func didMoveToSuperview() {
-        self.superview?.addSubview(dropView)
-        self.superview?.bringSubviewToFront(dropView)
-        
-        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        dropView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
