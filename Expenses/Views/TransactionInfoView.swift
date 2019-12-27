@@ -11,9 +11,9 @@ import UIKit
 
 class TransactionInfoView: UIView {
     
-    var categoryButton = DropDownButton(frame: CGRect(x: 50, y: 50, width: 100, height: 50))
+    var categoryButton = DropDownButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
-    var cardContainer = CardViewContainer(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    var cardContainer = CardViewContainer(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +22,10 @@ class TransactionInfoView: UIView {
         
         cardContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(cardContainer)
+        setupCardViewConstraints()
+        cardContainer.addSubview(categoryButton)
         
         categoryButton.translatesAutoresizingMaskIntoConstraints = false
-        setupCardViewConstraints()
-        
-        cardContainer.addSubview(categoryButton)
         setupButtonConstraints()
         
     }
@@ -36,16 +35,15 @@ class TransactionInfoView: UIView {
     }
     
     private func setupCardViewConstraints() {
-        cardContainer.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        cardContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: 16.0).isActive = true
         cardContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        cardContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        cardContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        cardContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
+        cardContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0).isActive = true
     }
     private func setupButtonConstraints() {
-        categoryButton.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
-        categoryButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor).isActive = true
-        categoryButton.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor).isActive = true
-        categoryButton.trailingAnchor.constraint(equalTo: cardContainer.trailingAnchor).isActive = true
+        categoryButton.setTitle("Hello", for: .normal)
+        categoryButton.centerXAnchor.constraint(equalTo: cardContainer.centerXAnchor).isActive = true
+        categoryButton.centerYAnchor.constraint(equalTo: cardContainer.centerYAnchor).isActive = true
     }
     
 }

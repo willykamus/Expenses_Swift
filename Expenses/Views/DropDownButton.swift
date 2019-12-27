@@ -21,7 +21,6 @@ class DropDownButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setTitle("Test", for: .normal)
         self.addSubview(dropView)
         
         dropView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
