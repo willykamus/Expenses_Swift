@@ -13,11 +13,11 @@ protocol Coordinator {
     func start()
 }
 
-protocol TableViewCoordinator: Coordinator {
-    func cellTaped(indexPath: IndexPath)
+protocol TableViewAction: class {
+    func cellTaped(presenter: TransactionPresenter)
 }
 
-class DisplayTransactionsCoordinator: TableViewCoordinator {
+class DisplayTransactionsCoordinator: Coordinator {
     
     var window: UIWindow
     var rootVC: UINavigationController
@@ -29,15 +29,18 @@ class DisplayTransactionsCoordinator: TableViewCoordinator {
     
     func start() {
         window.rootViewController = rootVC
-        let vc = ViewController() 
-        vc.viewModel = TransactionsViewModel(useCase: GetTransactionUseCase(repository: TransactionDataRepository(dataSource: TransactionFirestoreDataSource())), coordinator: self)
+        let vc = ViewController()
+        let viewModel = TransactionsViewModel(useCase: GetTransactionUseCase(repository: TransactionDataRepository(dataSource: TransactionFirestoreDataSource())))
+        viewModel.delegate = self
+        vc.viewModel = viewModel
         self.rootVC.pushViewController(vc, animated: true)
         self.window.makeKeyAndVisible()
     }
-    
-    func cellTaped(indexPath: IndexPath) {
-        let coordinator = DisplayTransactionCoordinator(withNavigationController: self.rootVC)
+}
+
+extension DisplayTransactionsCoordinator: TableViewAction {
+    func cellTaped(presenter: TransactionPresenter) {
+        let coordinator = DisplayTransactionCoordinator(withNavigationController: self.rootVC, presenter: presenter)
         coordinator.start()
     }
-
 }

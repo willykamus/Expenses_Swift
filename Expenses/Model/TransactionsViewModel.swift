@@ -12,11 +12,10 @@ class TransactionsViewModel {
     
     private let useCase: GetTransactionUseCase
     private var transactions = [TransactionPresenter]()
-    private var coordinator: TableViewCoordinator
+    weak var delegate: TableViewAction?
     
-    init(useCase: GetTransactionUseCase, coordinator: TableViewCoordinator) {
+    init(useCase: GetTransactionUseCase) {
         self.useCase = useCase
-        self.coordinator = coordinator
     }
     
     func fetchTransaction(completion: @escaping ()->()) {
@@ -29,7 +28,7 @@ class TransactionsViewModel {
     }
     
     func cellTapped(indexPath: IndexPath) {
-        coordinator.cellTaped(indexPath: indexPath)
+        delegate?.cellTaped(presenter: transactionPresenter(atIndexPath: indexPath))
     }
     
     func transactionsAmount() -> Int {

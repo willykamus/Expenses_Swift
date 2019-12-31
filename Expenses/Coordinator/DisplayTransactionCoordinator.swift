@@ -11,14 +11,21 @@ import UIKit
 
 class DisplayTransactionCoordinator: Coordinator {
     
-    let root: UINavigationController
+    private let root: UINavigationController
+    private let presenter: TransactionPresenter
     
-    init(withNavigationController root:UINavigationController) {
+    init(withNavigationController root:UINavigationController, presenter: TransactionPresenter) {
         self.root = root
+        self.presenter = presenter
     }
     
     func start() {
         let vc = TransactionViewController()
+        let viewModel = TransactionViewModel(presenter: self.presenter)
+        vc.viewModel = viewModel
+        root.navigationBar.isTranslucent = false
+        root.navigationBar.barTintColor = UIColor.systemGray6
+        root.navigationBar.shadowImage = UIImage()
         root.pushViewController(vc, animated: true)
     }
  

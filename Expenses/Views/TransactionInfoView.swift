@@ -15,16 +15,28 @@ class TransactionInfoView: UIView {
     
     var cardContainer = CardViewContainer(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
+    var cardTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Transaction"
+        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
 //        self.translatesAutoresizingMaskIntoConstraints = false
         
+        cardTitle.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(cardTitle)
+        setupCardTitleConstraints()
+        
         cardContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(cardContainer)
         setupCardViewConstraints()
-        cardContainer.addSubview(categoryButton)
         
+        
+        cardContainer.addSubview(categoryButton)
         categoryButton.translatesAutoresizingMaskIntoConstraints = false
         setupButtonConstraints()
         
@@ -34,8 +46,13 @@ class TransactionInfoView: UIView {
       super.init(coder: aDecoder)
     }
     
+    private func setupCardTitleConstraints() {
+        cardTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 16.0).isActive = true
+        cardTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
+    }
+    
     private func setupCardViewConstraints() {
-        cardContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: 16.0).isActive = true
+        cardContainer.topAnchor.constraint(equalTo: cardTitle.bottomAnchor, constant: 8.0).isActive = true
         cardContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         cardContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
         cardContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0).isActive = true

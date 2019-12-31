@@ -7,16 +7,23 @@
 //
 
 import Foundation
-import UIKit
 
 class TransactionViewModel {
     
     let presenter: TransactionPresenter
-    let coordinator: Coordinator
+    let view: TransactionInfoView
     
-    init(presenter: TransactionPresenter, coordinator: Coordinator) {
+    init(presenter: TransactionPresenter) {
         self.presenter = presenter
-        self.coordinator = coordinator
+        self.view = TransactionInfoView()
+        setCardTitleText()
     }
+    
+    private func setCardTitleText() {
+        let text = presenter.transactionDescription()
+        view.cardTitle.text = text
+    }
+    
+    
 
 }

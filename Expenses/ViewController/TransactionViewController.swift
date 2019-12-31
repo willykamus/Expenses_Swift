@@ -10,16 +10,13 @@ import UIKit
 
 class TransactionViewController: UIViewController {
     
-    var viewModel:TransactionViewModel?
-    
-    var transactionView: TransactionInfoView = TransactionInfoView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var viewModel:TransactionViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.systemGray6
-        print("I am here")
-        self.view.addSubview(transactionView)
-        
+        self.view.addSubview(viewModel.view)
+        self.navigationController?.navigationBar.isTranslucent = false
         // Do any additional setup after loading the view.
     }
     
@@ -28,12 +25,12 @@ class TransactionViewController: UIViewController {
     }
     
     func setupConstraints() {
-        print(self.view.safeAreaLayoutGuide)
-        transactionView.translatesAutoresizingMaskIntoConstraints = false
-        transactionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        transactionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        transactionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        transactionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+
+        viewModel.view.translatesAutoresizingMaskIntoConstraints = false
+        viewModel.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        viewModel.view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        viewModel.view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        viewModel.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         
     }
     
