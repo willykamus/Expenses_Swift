@@ -10,18 +10,27 @@ import Foundation
 
 class TransactionViewModel {
     
-    let presenter: TransactionPresenter
+    var presenter: TransactionPresenter {
+        didSet {
+            setCardTitleText()
+            setAmountText()
+        }
+    }
     let view: TransactionInfoView
     
     init(presenter: TransactionPresenter) {
         self.presenter = presenter
         self.view = TransactionInfoView()
         setCardTitleText()
+        setAmountText()
     }
     
     private func setCardTitleText() {
-        let text = presenter.transactionDescription()
-        view.cardTitle.text = text
+        view.cardTitle.text = presenter.transactionDescription()
+    }
+    
+    private func setAmountText() {
+        view.amountTextField.text = presenter.transactionAmount()
     }
     
     

@@ -17,12 +17,13 @@ class TransactionViewController: UIViewController {
         self.view.backgroundColor = UIColor.systemGray6
         self.view.addSubview(viewModel.view)
         self.navigationController?.navigationBar.isTranslucent = false
+        setupConstraints()
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
-        setupConstraints()
-    }
+//    override func viewDidLayoutSubviews() {
+//        
+//    }
     
     func setupConstraints() {
 

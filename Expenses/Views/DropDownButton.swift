@@ -21,9 +21,11 @@ class DropDownButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(dropView)
+        self.backgroundColor = .white
         
-        dropView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.addSubview(dropView)
+        dropView.translatesAutoresizingMaskIntoConstraints = false
+        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
@@ -36,9 +38,9 @@ class DropDownButton: UIButton {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isOpen {
-            openDropDownView()
-        } else {
             closeDropDownView()
+        } else {
+            openDropDownView()
         }
     }
     
@@ -76,7 +78,7 @@ class DropDownButton: UIButton {
 
 class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    var categories = ["Groceries","Rent","Credit Card"]
+    var categories = ["Groceries","Rent","Credit Card","HydroQuebec","Internet"]
     
     var tableView = UITableView()
     

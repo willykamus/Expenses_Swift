@@ -17,28 +17,63 @@ class TransactionInfoView: UIView {
     
     var cardTitle: UILabel = {
         let label = UILabel()
-        label.text = "Transaction"
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        return label
+    }()
+    
+    let ribbon = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    
+    var amountTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Amount"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        return label
+    }()
+    
+    var amountTextField: UITextField = {
+        let textview = UITextField()
+        textview.borderStyle = .none
+        textview.text = "0.00$"
+        textview.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        textview.textColor = .white
+        return textview
+    }()
+    
+    var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Category"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-//        self.translatesAutoresizingMaskIntoConstraints = false
         
         cardTitle.translatesAutoresizingMaskIntoConstraints = false
+        cardContainer.translatesAutoresizingMaskIntoConstraints = false
+        categoryButton.translatesAutoresizingMaskIntoConstraints = false
+        amountTitle.translatesAutoresizingMaskIntoConstraints = false
+        amountTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         self.addSubview(cardTitle)
         setupCardTitleConstraints()
         
-        cardContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(cardContainer)
         setupCardViewConstraints()
+
+        cardContainer.addSubview(amountTextField)
+//        cardContainer.addSubview(amountTitle)
         
+        setupAmountTextField()
         
         cardContainer.addSubview(categoryButton)
-        categoryButton.translatesAutoresizingMaskIntoConstraints = false
         setupButtonConstraints()
+        
+//        categoryButton.translatesAutoresizingMaskIntoConstraints = false
+        setupAmountTextField()
+//        setupButtonConstraints()
         
     }
 
@@ -56,11 +91,35 @@ class TransactionInfoView: UIView {
         cardContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         cardContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
         cardContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0).isActive = true
+        
+        ribbon.backgroundColor = .red
+        ribbon.translatesAutoresizingMaskIntoConstraints = false
+        ribbon.layer.cornerRadius = 16
+        ribbon.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        cardContainer.addSubview(ribbon)
+        
+        ribbon.topAnchor.constraint(equalTo: cardContainer.topAnchor, constant: 0).isActive = true
+        ribbon.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor, constant: 0).isActive = true
+        ribbon.trailingAnchor.constraint(equalTo: cardContainer.trailingAnchor, constant: 0).isActive = true
+        ribbon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        ribbon.addSubview(amountTextField)
+        
+        setupAmountTextField()
+        
     }
     private func setupButtonConstraints() {
         categoryButton.setTitle("Hello", for: .normal)
-        categoryButton.centerXAnchor.constraint(equalTo: cardContainer.centerXAnchor).isActive = true
-        categoryButton.centerYAnchor.constraint(equalTo: cardContainer.centerYAnchor).isActive = true
+        categoryButton.topAnchor.constraint(equalTo: ribbon.bottomAnchor, constant: 8).isActive = true
+        categoryButton.trailingAnchor.constraint(equalTo: cardContainer.trailingAnchor, constant: -8).isActive = true
+        categoryButton.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor, constant: 8).isActive = true
+    }
+    private func setupAmountTextField() {
+//        amountTitle.topAnchor.constraint(equalTo: cardContainer.topAnchor, constant: 16).isActive = true
+//        amountTitle.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor, constant: 16).isActive = true
+        amountTextField.bottomAnchor.constraint(equalTo: ribbon.bottomAnchor, constant: -2).isActive = true
+        amountTextField.trailingAnchor.constraint(equalTo: ribbon.trailingAnchor, constant: -16).isActive = true
     }
     
 }
