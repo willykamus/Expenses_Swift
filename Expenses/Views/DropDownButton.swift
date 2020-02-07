@@ -31,15 +31,17 @@ class DropDownButton: UIButton {
     
     override func didMoveToSuperview() {
         
-        self.superview?.addSubview(dropView)
-        self.superview?.bringSubviewToFront(dropView)
+        if let superview = self.superview {
+            superview.addSubview(dropView)
+            superview.bringSubviewToFront(dropView)
+            dropView.translatesAutoresizingMaskIntoConstraints = false
+            dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+            
+            height = dropView.heightAnchor.constraint(equalToConstant: 0)
+        }
         
-        dropView.translatesAutoresizingMaskIntoConstraints = false
-        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        
-        height = dropView.heightAnchor.constraint(equalToConstant: 0)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -110,7 +110,6 @@ class TransactionInfoView: UIView {
         
     }
     private func setupButtonConstraints() {
-        categoryButton.setTitle("Hello", for: .normal)
         categoryButton.topAnchor.constraint(equalTo: ribbon.bottomAnchor, constant: 8).isActive = true
         categoryButton.trailingAnchor.constraint(equalTo: cardContainer.trailingAnchor, constant: -8).isActive = true
         categoryButton.leadingAnchor.constraint(equalTo: cardContainer.leadingAnchor, constant: 8).isActive = true
