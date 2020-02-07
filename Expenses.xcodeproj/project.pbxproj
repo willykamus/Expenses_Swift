@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C02DEF923A1D7F6007069C4 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DEF823A1D7F6007069C4 /* TransactionInfoView.swift */; };
-		1C02DEFC23A71F1A007069C4 /* TransactionFirestoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DEFB23A71F1A007069C4 /* TransactionFirestoreDataSource.swift */; };
+		1C02DEFC23A71F1A007069C4 /* TransactionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DEFB23A71F1A007069C4 /* TransactionDataSource.swift */; };
 		1C02DEFF23AAFC1A007069C4 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DEFD23AAFC1A007069C4 /* HeaderTableViewCell.swift */; };
 		1C02DF0023AAFC1A007069C4 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C02DEFE23AAFC1A007069C4 /* HeaderTableViewCell.xib */; };
 		1C02DF0323AB02EA007069C4 /* GetTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C02DF0223AB02EA007069C4 /* GetTransactionUseCase.swift */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1C02DEF823A1D7F6007069C4 /* TransactionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfoView.swift; sourceTree = "<group>"; };
-		1C02DEFB23A71F1A007069C4 /* TransactionFirestoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFirestoreDataSource.swift; sourceTree = "<group>"; };
+		1C02DEFB23A71F1A007069C4 /* TransactionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataSource.swift; sourceTree = "<group>"; };
 		1C02DEFD23AAFC1A007069C4 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		1C02DEFE23AAFC1A007069C4 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		1C02DF0223AB02EA007069C4 /* GetTransactionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionUseCase.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			children = (
 				1C3E0D86239B5B79002AD183 /* TransactionRepository.swift */,
 				1C3E0D88239B5D4D002AD183 /* Firestore.swift */,
-				1C02DEFB23A71F1A007069C4 /* TransactionFirestoreDataSource.swift */,
+				1C02DEFB23A71F1A007069C4 /* TransactionDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				1C3E0D622396057A002AD183 /* AppDelegate.swift in Sources */,
 				1C3E0D89239B5D4D002AD183 /* Firestore.swift in Sources */,
 				1C3E0D802398B7A0002AD183 /* TransactionTableViewCell.swift in Sources */,
-				1C02DEFC23A71F1A007069C4 /* TransactionFirestoreDataSource.swift in Sources */,
+				1C02DEFC23A71F1A007069C4 /* TransactionDataSource.swift in Sources */,
 				1C02DF1323B06CBC007069C4 /* DisplayTransactionCoordinator.swift in Sources */,
 				1C12F59323B1011D00FC99AE /* DropDownButton.swift in Sources */,
 				1C02DEFF23AAFC1A007069C4 /* HeaderTableViewCell.swift in Sources */,

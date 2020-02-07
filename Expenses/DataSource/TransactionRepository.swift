@@ -9,17 +9,15 @@
 import Foundation
 
 protocol TransactionRepository {
+    var dataSource: TransactionsDataSource { get }
     func getTransaction(success: @escaping ([Transaction])->())
-}
-
-protocol AddTransactionRespository {
     func addTransaction(document:Transaction, success: @escaping (Bool)->())
 }
 
 class TransactionDataRepository: TransactionRepository {
     
-    private let dataSource: TransactionsDataSource
-    
+    var dataSource: TransactionsDataSource
+
     init(dataSource: TransactionsDataSource) {
         self.dataSource = dataSource
     }
@@ -27,17 +25,9 @@ class TransactionDataRepository: TransactionRepository {
     func getTransaction(success: @escaping ([Transaction]) -> ()) {
         dataSource.getTransactions(success: success)
     }
-}
-
-class AddTransactionDataRespository: AddTransactionRespository {
-    
-    private let dataSource: AddTransactionDataSource
-    
-    init(dataSource: AddTransactionDataSource) {
-        self.dataSource = dataSource
-    }
     
     func addTransaction(document: Transaction, success: @escaping (Bool) -> ()) {
         dataSource.addTransaction(document: document, success: success)
     }
+    
 }

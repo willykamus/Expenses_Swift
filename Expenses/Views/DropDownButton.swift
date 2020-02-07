@@ -22,18 +22,24 @@ class DropDownButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToSuperview() {
         
-        self.addSubview(dropView)
+        self.superview?.addSubview(dropView)
+        self.superview?.bringSubviewToFront(dropView)
+        
         dropView.translatesAutoresizingMaskIntoConstraints = false
         dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,7 +53,7 @@ class DropDownButton: UIButton {
     private func openDropDownView() {
         isOpen = true
         NSLayoutConstraint.deactivate([self.height])
-        self.height.constant = 150
+        self.height.constant = 200
         NSLayoutConstraint.activate([self.height])
         animateOpening()
     }
@@ -71,7 +77,14 @@ class DropDownButton: UIButton {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.dropView.center.y -= self.dropView.frame.height / 2
             self.dropView.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: { _ in
+            self.scrollToFirstRow()
+        })
+    }
+    
+    private func scrollToFirstRow() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.dropView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 
 }

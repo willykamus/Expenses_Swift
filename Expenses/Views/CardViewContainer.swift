@@ -14,6 +14,7 @@ class CardViewContainer: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .white
         setupBorders()
     }
     

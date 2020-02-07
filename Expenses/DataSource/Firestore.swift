@@ -9,14 +9,6 @@
 import Foundation
 import Firebase
 
-protocol TransactionsDataSource {
-    func getTransactions(success: @escaping ([Transaction])->())
-}
-
-protocol AddTransactionDataSource {
-    func addTransaction(document:Transaction, success: @escaping (Bool)->())
-}
-
 class FirestoreNetwork {
 
     private var db: Firestore
